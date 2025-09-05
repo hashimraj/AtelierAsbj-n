@@ -20,7 +20,7 @@ const Hero = () => {
           alt="Elegant interior design by AtelierAsbjøn" 
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-background/60 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 bg-background/60 backdrop-blur-[0.2px]"></div>
       </div>
 
       {/* Content */}
