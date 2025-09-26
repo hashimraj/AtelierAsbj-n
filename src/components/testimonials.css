@@ -1,0 +1,47 @@
+.swiper-button-prev,
+.swiper-button-next {
+  color: #4b5563; /* gray-600 */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+}
+
+.swiper-button-prev {
+  left: -45px; /* space from card */
+}
+
+.swiper-button-next {
+  right: -45px; /* space from card */
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  color: #111827; /* gray-900 */
+}
+
+.swiper-pagination-bullet {
+  background: #9ca3af;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background: #1f2937;
+}
+
+/* On mobile, smaller buttons with more spacing */
+@media (max-width: 640px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 22px;
+    height: 22px;
+  }
+
+  .swiper-button-prev {
+    left: -30px;
+  }
+
+  .swiper-button-next {
+    right: -30px;
+  }
+}

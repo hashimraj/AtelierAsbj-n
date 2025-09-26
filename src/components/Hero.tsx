@@ -1,70 +1,103 @@
-import React from 'react';
-import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
-import heroImage from '@/assets/hero-interior.jpg';
+import React from "react";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import heroImage from "@/assets/UrbanApartmentRenovation.jpg";
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <section id="home" className="min-h-screen relative flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+    <section
+      id="home"
+      className="min-h-screen relative flex items-center justify-center overflow-hidden"
+    >
+      {/* Background Image with gradient overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src={heroImage} 
-          alt="Elegant interior design by AtelierAsbjøn" 
-          className="w-full h-full object-cover"
+        <img
+          src={heroImage}
+          alt="Elegant interior design by Atelier Asbjøn"
+          className="w-full h-full object-cover scale-105"
         />
-        <div className="absolute inset-0 bg-background/60 backdrop-blur-[0.2px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/70"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto container-padding text-center">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-display mb-6 animate-fade-up">
-            Timeless Interior Design
-            <span className="block text-primary">From Norway</span>
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="max-w-3xl mx-auto"
+        >
+          {/* Title */}
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-playfair font-semibold leading-snug text-white mb-4 sm:mb-6">
+            Timeless <span className="text-primary">Interior Design</span>
+            <span className="block text-xl sm:text-2xl md:text-3xl mt-3 font-light text-neutral-200">
+              Crafted in Norway
+            </span>
           </h1>
-          
-          <p className="text-subtitle text-neutral-600 mb-8 max-w-2xl mx-auto animate-fade-up" 
-             style={{ animationDelay: '0.2s' }}>
-            20 years of creating sophisticated interiors that balance aesthetics, comfort, and 
-            functionality across residential, commercial, hospitality, and healthcare spaces.
+
+          {/* Subtitle */}
+          <p className="text-base sm:text-lg md:text-xl text-neutral-300 max-w-xl sm:max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed">
+            With over 20 years of expertise, Atelier Asbjøn transforms spaces
+            into elegant sanctuaries that blend aesthetics, comfort, and
+            functionality across residential, commercial, and hospitality
+            sectors.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" 
-               style={{ animationDelay: '0.4s' }}>
-            <Button 
-              size="lg" 
-              className="text-lg px-8 py-6 shadow-medium hover:shadow-large transition-all duration-300"
-              onClick={() => scrollToSection('portfolio')}
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
+            {/* First button → half width on mobile */}
+            <Button
+              size="default"
+              className="w-1/2 sm:w-auto text-sm sm:text-base px-5 py-3 sm:px-6 sm:py-4 shadow-md 
+                         transition-all duration-300 bg-gradient-to-r from-primary to-primary/80 
+                         text-white group"
+              onClick={() => scrollToSection("portfolio")}
             >
-              View Our Work
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <span className="transition duration-300">View Our Work</span>
+              <ArrowRight
+                className="ml-2 h-4 w-4 transition-transform duration-300 
+                           group-hover:rotate-45"
+              />
             </Button>
-            
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="text-lg px-8 py-6 border-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-              onClick={() => scrollToSection('contact')}
+
+            {/* Second button → 3/8 width on mobile */}
+            <Button
+              size="default"
+              className="w-3/8 sm:w-auto text-sm sm:text-base px-5 py-3 sm:px-6 sm:py-4 shadow-md 
+                         transition-all duration-300 bg-white text-primary 
+                         hover:bg-gradient-to-r hover:from-primary hover:to-primary/80 hover:text-white"
+              onClick={() => scrollToSection("contact")}
             >
               Get In Touch
             </Button>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-neutral-400 rounded-full p-1">
-          <div className="w-1 h-3 bg-neutral-400 rounded-full mx-auto animate-pulse"></div>
-        </div>
+      <div className="absolute bottom-6 sm:bottom-10 left-1/2 transform -translate-x-1/2">
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5 }}
+        >
+          <svg
+            className="w-5 h-5 sm:w-6 sm:h-6 text-white opacity-80"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            viewBox="0 0 24 24"
+          >
+            <path d="M19 9l-7 7-7-7" />
+          </svg>
+        </motion.div>
       </div>
     </section>
   );

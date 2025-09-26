@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -10,39 +10,47 @@ const Navigation = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
       setIsMobileMenuOpen(false);
     }
   };
 
   const navItems = [
-    { label: 'Home', id: 'home' },
-    { label: 'About', id: 'about' },
-    { label: 'Services', id: 'services' },
-    { label: 'Portfolio', id: 'portfolio' },
-    { label: 'Testimonials', id: 'testimonials' },
-    { label: 'Contact', id: 'contact' },
+    { label: "Home", id: "home" },
+    { label: "About", id: "about" },
+    { label: "Services", id: "services" },
+    { label: "Portfolio", id: "portfolio" },
+    { label: "Testimonials", id: "testimonials" },
+    { label: "Contact", id: "contact" },
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-background/95 backdrop-blur-md shadow-soft' : 'bg-transparent'
-    }`}>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-white/60 backdrop-blur-md shadow-md"
+          : "bg-white shadow-sm"
+      }`}
+    >
       <div className="container mx-auto container-padding">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-playfair font-semibold text-lg">A</span>
+              <span className="text-primary-foreground font-playfair font-semibold text-lg">
+                A
+              </span>
             </div>
-            <span className="font-playfair font-semibold text-xl">AtelierAsbjøn</span>
+            <span className="font-playfair font-semibold text-xl">
+              AtelierAsbjøn
+            </span>
           </div>
 
           {/* Desktop Navigation */}
