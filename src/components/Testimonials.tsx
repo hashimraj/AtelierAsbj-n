@@ -71,7 +71,7 @@ const testimonials: Testimonial[] = [
     role: "Apartment Owner",
     location: "London",
     rating: 4,
-    text: "The design looks beautiful and modern, even though delivery was slightly late. Friends always compliment the cozy feeling. Overall, very satisfied with the final outcome.",
+    text: "The design looks beautiful and modern. Friends always compliment the cozy feeling. Overall, very satisfied with the final outcome.",
     project: "Apartment Makeover",
   },
 ];

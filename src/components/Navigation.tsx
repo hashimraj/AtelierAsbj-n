@@ -41,8 +41,8 @@ const Navigation = () => {
     >
       <div className="container mx-auto container-padding">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <div className="flex items-center space-x-3">
+          {/* Logo → Navigates to home */}
+          <a href="/" className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
               <span className="text-primary-foreground font-playfair font-semibold text-lg">
                 A
@@ -51,7 +51,7 @@ const Navigation = () => {
             <span className="font-playfair font-semibold text-xl">
               AtelierAsbjøn
             </span>
-          </div>
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
@@ -99,3 +99,4 @@ const Navigation = () => {
 };
 
 export default Navigation;
+

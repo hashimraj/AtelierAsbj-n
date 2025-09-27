@@ -17,12 +17,15 @@ const Hero = () => {
       id="home"
       className="min-h-screen relative flex items-center justify-center overflow-hidden"
     >
-      {/* Background Image with gradient overlay */}
+      {/* Background Image with blur-to-clear animation */}
       <div className="absolute inset-0 z-0">
-        <img
+        <motion.img
           src={heroImage}
           alt="Elegant interior design by Atelier Asbjøn"
-          className="w-full h-full object-cover scale-105"
+          initial={{ filter: "blur(20px)", scale: 1.05, opacity: 0 }}
+          animate={{ filter: "blur(0px)", scale: 1, opacity: 1 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/70"></div>
       </div>
@@ -104,3 +107,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
